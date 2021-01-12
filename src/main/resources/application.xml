@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="person" class="com.gupaoedu.project.entity.Person">
+        <property name="name" value="Tom"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean name="employee" class="com.gupaoedu.demo.xml.autowire.Employee">
+        <property name="name" value="Pankaj"></property>
+    </bean>
+
+    <bean name="employee1" class="com.gupaoedu.demo.xml.autowire.Employee" autowire-candidate="false">
+        <property name="name" value="Dummy Name"></property>
+    </bean>
+
+    <!-- autowiring byName, bean name should be same as the property name -->
+    <bean name="employeeServiceByName" class="com.gupaoedu.demo.xml.autowire.EmployeeService" autowire="byName" />
+
+    <!-- autowiring byType, there should be only one bean definition for the mapping -->
+    <bean name="employeeServiceByType" class="com.gupaoedu.demo.xml.autowire.EmployeeService" autowire="byType" />
+
+    <!-- autowiring by constructor -->
+    <bean name="employeeServiceConstructor" class="com.gupaoedu.demo.xml.autowire.EmployeeService" autowire="constructor" />
+</beans>
