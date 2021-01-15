@@ -23,6 +23,7 @@ public class MyTest {
         ApplicationContext applicationContext  = new AnnotationConfigApplicationContext(AutowireByTypeConfig.class);
         System.out.println(applicationContext.getBean(EmployeeAutowiredByTypeServiceName.class));
         System.out.println(applicationContext.getBean(EmployeeAutowiredByTypeServiceName.class).getEmployee1().toString());
+        System.out.println(applicationContext.getBean(EmployeeAutowiredByTypeServiceName.class).getDepartment().toString());
         System.out.println(applicationContext.getBean("employee"));
         System.out.println(applicationContext.getBean(Employee.class));
         System.out.println(applicationContext.getBean(EmployeeAutowiredByTypeServiceName.class));

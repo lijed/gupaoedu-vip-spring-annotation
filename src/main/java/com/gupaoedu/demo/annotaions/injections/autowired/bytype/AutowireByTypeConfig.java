@@ -22,8 +22,30 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com.gupaoedu.project.entity")
 public class AutowireByTypeConfig {
 
+//    @Bean
+//    public EmployeeAutowiredByTypeServiceName employeeAutowiredByTypeService() {
+//        return new EmployeeAutowiredByTypeServiceName();
+//    }
+
     @Bean
-    public EmployeeAutowiredByTypeServiceName employeeAutowiredByTypeService() {
-        return new EmployeeAutowiredByTypeServiceName();
+    public Department productionDepartment() {
+        Department department = new Department();
+        department.setName("Production");
+        return department;
     }
+
+
+    /**
+     * 按照类型进行自动装配 是默认的方式
+     *
+     * @param department
+     * @return
+     */
+    @Bean
+    public EmployeeAutowiredByTypeServiceName employeeAutowiredByTypeServiceName(Department department) {
+        EmployeeAutowiredByTypeServiceName employeeAutowiredByTypeServiceName = new EmployeeAutowiredByTypeServiceName();
+        employeeAutowiredByTypeServiceName.setDepartment(department);
+        return employeeAutowiredByTypeServiceName;
+    }
+
 }

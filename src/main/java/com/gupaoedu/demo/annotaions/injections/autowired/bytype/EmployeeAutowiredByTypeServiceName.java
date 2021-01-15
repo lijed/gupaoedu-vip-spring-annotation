@@ -21,6 +21,16 @@ public class EmployeeAutowiredByTypeServiceName {
     @Autowired
     private Employee employee1;
 
+    private Department department;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Autowired
     public void setEmployee1(Employee emp){
         this.employee1 =emp;

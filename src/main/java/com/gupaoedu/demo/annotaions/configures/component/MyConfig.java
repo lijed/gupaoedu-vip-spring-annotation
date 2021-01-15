@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 @Configuration
 @ComponentScan(value = "com.gupaoedu.project",
-//        includeFilters = {@Filter(type = FilterType.ANNOTATION,value = {Component.class})},
-        includeFilters = {@Filter(type = FilterType.ANNOTATION,value = {Controller.class})},
+        includeFilters = {@Filter(type = FilterType.ANNOTATION,value = {Component.class})},
+//        includeFilters = {@Filter(type = FilterType.ANNOTATION,value = {Controller.class})},
         useDefaultFilters = false)
 public class MyConfig {
 
