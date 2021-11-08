@@ -5,30 +5,21 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with Tu.cn
  */
-package com.gupaoedu.demo.annotaions.aspects.aop;
-
+package com.gupaoedu.demo.applicationevent;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @author Administrator
- * @date 2021/1/11 21:58
+ * @date 2021/1/23 23:41
  * Project Name: gupaoedu-vip-spring-annotation
  */
 @Configuration
-@EnableAspectJAutoProxy
-@ComponentScan("com.gupaoedu.demo.annotaions.aspects.aop")
 public class AppConfig {
-    @Bean
-    public WorkerService workerService() {
-        return new WorkerService();
-    }
 
     @Bean
-    public LogAspect logAspect() {
-        return new LogAspect();
+    public WorkStatusListener workerStatusListener() {
+        return new WorkStatusListener();
     }
 }

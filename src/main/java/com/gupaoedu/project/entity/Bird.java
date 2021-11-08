@@ -13,6 +13,7 @@ public class Bird {
     //4、通过配置property文件赋值
     @Value("鹦鹉")
     private String name;
+
     @Value("#{8-5}")
     private int age;
 
