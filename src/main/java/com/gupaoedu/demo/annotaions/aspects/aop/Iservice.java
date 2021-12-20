@@ -17,5 +17,9 @@ import java.util.concurrent.TimeUnit;
 public interface Iservice {
      void doSomething();
      void process(String material);
+     String getSomething();
+
+     String process(String material, String material1);
+
 }
 

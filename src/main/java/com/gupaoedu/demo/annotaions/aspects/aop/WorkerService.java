@@ -15,13 +15,25 @@ import java.util.concurrent.TimeUnit;
  * @date 2021/1/11 17:52
  * Project Name: gupaoedu-vip-spring-annotation
  */
-//public class WorkerService implements Iservice {
-    public class WorkerService {
+public class WorkerService implements Iservice {
 
+    @Override
     public void doSomething() {
         System.out.println("working");
     }
 
+    @Override
+    public String getSomething() {
+        System.out.println("getting something");
+        return "get something";
+    }
+
+    @Override
+    public String process(String material, String material1) {
+       return material + " " + material1;
+    }
+
+    @Override
     public void process(String material) {
         try {
             TimeUnit.SECONDS.sleep(5);

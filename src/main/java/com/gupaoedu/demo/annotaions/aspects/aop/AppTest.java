@@ -19,9 +19,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AppTest {
     public static void main(String[] args) throws InterruptedException {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-//        Iservice bean = applicationContext.getBean(Iservice.class);
-        WorkerService bean = applicationContext.getBean(WorkerService.class);
+        Iservice bean = applicationContext.getBean(Iservice.class);
+//        WorkerService bean = applicationContext.getBean(WorkerService.class);
         bean.doSomething();
         bean.process("butter oil");
+        System.out.println(bean.getSomething());
+
+        System.out.println(bean.process("a", "b"));
+
     }
 }

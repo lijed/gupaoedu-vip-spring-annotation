@@ -30,11 +30,16 @@ public class ExecuationTimeLogAroundAspect {
     public void pointCut() {}
 
     @Around(value = "pointCut()")
-    public void logTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    public Object logTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long start = System.nanoTime();
-        Object result = proceedingJoinPoint.proceed();
+
+        Object[] args = proceedingJoinPoint.getArgs();
+        Object result = proceedingJoinPoint.proceed(args);
+
         long end = System.nanoTime();
-        System.out.println("Execution of " + proceedingJoinPoint.getSignature().getName() + " took " +
+        System.out.println("Execution of " + proceedingJoinPoint.getTarget().getClass() + proceedingJoinPoint.getSignature().getName() + " took " +
                 TimeUnit.NANOSECONDS.toMillis(end - start) + " ms");
+
+        return result;
     }
 }
